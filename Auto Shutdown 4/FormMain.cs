@@ -28,7 +28,16 @@ namespace Auto_Shutdown_4
 
 		public void Shutdown()
 		{
-			string cmdText = "shutdown -s -t 10";
+
+            string cmdText = "shutdown -s -t 10";
+            Version win8version = new Version(6, 2, 9200, 0);
+
+            if (Environment.OSVersion.Platform == PlatformID.Win32NT &&
+                Environment.OSVersion.Version >= win8version)
+            {
+                // its win8 or higher.
+                cmdText = "start shutdown -s -t 10";
+            }
 			Process.Start("cmd", "/C " + cmdText);
 		}
 
