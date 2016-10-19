@@ -47,7 +47,9 @@ namespace Auto_Shutdown_4
 			this.label3.Text = string.Concat(new object[]
 			{
 				"Elapsed time : ",
-				string.Format("{0:F2}", this.dTime / 60.0),
+                string.Format("{0:F2}", this.dTime / (60.0*60.0)),
+                " in Hour(s) or ",
+                string.Format("{0:F2}", this.dTime / 60.0),
 				" in Minute(s) or ",
 				this.dTime,
 				" in Second"
